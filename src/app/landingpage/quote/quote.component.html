@@ -1,0 +1,120 @@
+<div id="engage_quote" class="bg-body" data-kt-drawer="true" data-kt-drawer-name="explore"
+    data-kt-drawer-activate="true" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'350px', 'lg': '475px'}"
+    data-kt-drawer-direction="end" data-kt-drawer-toggle="#engage_quote_toggle"
+    data-kt-drawer-close="#engage_quote_close">
+    <div class="card shadow-none rounded-0 w-100">
+        <div class="card-header text-center" id="engage_quote_header">
+            <h3 class="card-title fw-bold text-dark">Obtenga un precio estimado de Inmediato</h3>
+            <div class="card-toolbar">
+                <button type="button" class="btn btn-lg btn-active-color-primary h-80px w-80px me-n6"
+                    id="engage_quote_close">
+                    <span class="svg-icon svg-icon-2">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1"
+                                transform="rotate(-45 6 17.3137)" fill="currentColor" />
+                            <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)"
+                                fill="currentColor" />
+                        </svg>
+                    </span>
+                </button>
+            </div>
+        </div>
+        <div class="card-body">
+            <ng-container *ngIf="showForm">
+                <form class="form w-100" novalidate="novalidate" autocomplete="off" (ngSubmit)="quoteIt()">
+                    <div class="text-center mb-11">
+                        <h1 class="text-dark fw-bolder mb-3">Ingresa los datos de tu Paquete</h1>
+                    </div>
+                    <div class="separator separator-content my-14">
+                        <span class="w-125px text-gray-500 fw-semibold fs-7">Envío</span>
+                    </div>
+                    <div class="fv-row mb-8">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <select class="form-select mb-2" [(ngModel)]="heroe.type"
+                                    (ngModelChange)="asignShipper()" [ngModelOptions]="{standalone: true}">
+                                    <option *ngFor="let item of types" value="{{ item }}"> {{ item | titlecase }}
+                                    </option>
+                                </select>
+                                <div class="text-muted fs-7">Seleccione una opción.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <select class="form-select mb-2" [(ngModel)]="heroe.shipper"
+                                    [ngModelOptions]="{standalone: true}">
+                                    <option *ngFor="let item of shippers" value="{{ item }}"> {{ item }} </option>
+                                </select>
+                                <div class="text-muted fs-7">Seleccione una opción.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="separator separator-content my-14">
+                        <span class="w-125px text-gray-500 fw-semibold fs-7">Dimensiones</span>
+                    </div>
+                    <div class="fv-row mb-8">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="required form-label" for="high">Alto</label>
+                                <input type="number" min="1" max="65" step="1" class="form-control"
+                                    [(ngModel)]="heroe.high" [ngModelOptions]="{standalone: true}" autocomplete="off" />
+                                <div class="text-muted fs-7">Establezca en cm.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="required form-label" for="long">Largo</label>
+                                <input type="number" min="1" max="65" step="1" class="form-control"
+                                    [(ngModel)]="heroe.long" [ngModelOptions]="{standalone: true}" autocomplete="off" />
+                                <div class="text-muted fs-7">Establezca en cm.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fv-row mb-8">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="required form-label" for="width">Ancho</label>
+                                <input type="number" min="1" max="65" step="1" class="form-control"
+                                    [(ngModel)]="heroe.width" [ngModelOptions]="{standalone: true}"
+                                    autocomplete="off" />
+                                <div class="text-muted fs-7">Establezca en cm.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label" for="weight">Peso</label>
+                                <input type="number" min="1" max="65" step="1" class="form-control"
+                                    [(ngModel)]="heroe.weight" [ngModelOptions]="{standalone: true}"
+                                    autocomplete="off" />
+                                <div class="text-muted fs-7">Establezca en cm.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-grid mb-10">
+                        <button type="submit" class="btn btn-primary">
+                            <span class="indicator-label">¡Cotiza tu Envío!</span>
+                            <span class="indicator-progress">Un momento porfavoe...
+                                <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+                        </button>
+                    </div>
+                </form>
+            </ng-container>
+            <ng-container *ngIf="!showForm">
+                <div class="rounded landing-dark-border p-9 mb-10">
+                    <div class="text-center">
+                        <h3 class="text-dark lh-base fw-bold fs-2x fs-lg-3x mb-15" style=" font-style: italic">
+                            {{ return | titlecase }}
+                        </h3>
+                        <h3 class="fs-2hx text-dark mb-5" data-kt-scroll-offset="{default: 125, lg: 150}">{{ result |
+                            currency }}</h3>
+                        <button type="button" class="btn btn-success" (click)="resetQuot()">
+                            <span class="indicator-label">¡Vuelve a Cotizar tu Envío!</span>
+                            <span class="indicator-progress">Un momento porfavoe...
+                                <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+                        </button>
+                    </div>
+                </div>
+            </ng-container>
+            <button type="button" class="btn btn-warning" id="engage_quote_close" (click)="resetQuot()">
+                <span class="indicator-label">Cerrar</span>
+                <span class="indicator-progress">Un momento porfavoe... <span
+                        class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+            </button>
+
+        </div>
+    </div>
+</div>

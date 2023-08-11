@@ -1,0 +1,87 @@
+#style-switcher h2 a { background: #de0109 none repeat scroll 0 0; }
+
+a,
+.slider_content h2,
+.nav > li > a:hover,
+#header.menu-shrink .nav > li > a:hover,
+.section_title span,
+.progress .progress-icon,
+.serviceBox .service-icon,
+.pricingTable:hover .main_bg_btn,
+.testimonial .testimonial-title,
+.single_blog:hover .blog_details h1,
+.counter_icon i,
+.main_bg_btn:hover,
+.main_bg_btn:focus{
+	color: #de0109;
+}
+
+
+.title_border,
+.progress .progress-icon,
+.testimonial .pic::before ,
+.testimonial .pic::after,
+#testimonial-slider .owl-dot,
+#main_form .form-control:focus,
+.main_bg_btn,
+.main_bg_btn:hover,
+.main_bg_btn:focus {
+	border-color: #de0109;
+}
+.portfolio_filter .filter.active,
+.single_portfolio .icon li a:hover,
+.progress .progress-bar,
+.our-team .team-content,
+.our-team .team-content::before, 
+.our-team .team-content::after,
+.serviceBox:hover,
+.pricingTable-header > .price-value,
+#testimonial-slider .owl-dot.active,
+.sec_divider,
+.preloader{
+	background: #de0109;
+}
+
+.single_portfolio::after {
+	background: rgba(254, 72, 25, 0.9);
+}
+
+.single_post .post-img::before {
+	background-color: rgba(254, 72, 25, 0.5);
+
+}
+.slider_active .owl-nav .owl-next:hover, .slider_active .owl-nav .owl-prev:hover {
+	color: #fff;
+	background: rgba(254, 72, 25, 0.9);
+}
+.main_bg_btn {
+	background: #de0109;
+}
+.single_about:after{
+    border-bottom: 1px solid #de0109;
+    border-top: 1px solid #de0109;
+
+}
+.single_about:before{
+    border-left: 1px solid #de0109;
+    border-right: 1px solid #de0109;
+
+}
+
+.pricingTable:hover .price-value{
+    box-shadow: 0px 0px 0px 3px #de0109;
+}
+
+
+#slider_area .main_bg_btn:hover{
+	background: #de0109;
+	border-color: #de0109;
+}
+.single_about .about_icon i,
+.single_contact_info i,
+#footer_area {
+	background-image: linear-gradient(to right, #de0109 0%, #ff1921 100%);
+}
+.gradient_background {
+	background-image: linear-gradient(to right, #ff1921 0%, #de0109 100%);
+}
