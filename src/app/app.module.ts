@@ -7,14 +7,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { LandingComponent } from './landing/landing.component';
 import { SellComponent } from './sell/sell.component';
-import { BuyComponent } from './buy/buy.component';
-import { WhatsComponent } from './whats/whats.component';
+import { RentComponent } from './rent/rent.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SellComponent,
-    WhatsComponent
+    RentComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +21,7 @@ import { WhatsComponent } from './whats/whats.component';
     RouterModule.forRoot([
       { path: '', component: LandingComponent },
       { path: 'quiero-vender', component: SellComponent },
-      { path: 'quiero-rentar', component: BuyComponent },
+      { path: 'quiero-rentar', component: RentComponent },
       { path: '**', redirectTo: '' }
     ])
   ],

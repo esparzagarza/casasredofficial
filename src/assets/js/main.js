@@ -4,7 +4,7 @@
 			/*PRELOADER JS*/
 			$(window).on('load', function() { 
 				$('.loader').fadeOut();
-				$('.preloader').delay(350).fadeOut('slow'); 
+				$('.preloader').delay(100).fadeOut('slow'); 
 			}); 
 			/*END PRELOADER JS*/
 				
@@ -47,7 +47,7 @@
 				animateOut: 'fadeOut',
 				smartSpeed:450,
 				autoplay:true,
-				autoplayTimeout:6000,
+				autoplayTimeout:10000,
 				mouseDrag:false,
 				nav:true,
 				responsive:{
