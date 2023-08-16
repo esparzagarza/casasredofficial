@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
-import { SendAMailService } from '../services/send-amail.service';
+import { SendAMailService } from '../../send-amail.service';
 
 @Component({
   selector: 'app-landing',
@@ -10,10 +10,7 @@ import { SendAMailService } from '../services/send-amail.service';
 
 })
 export class LandingComponent {
-
-  whatsApi = environment.whatsApi;
-  responseForm = 'Lets\' do it !';
-
+  
   contactForm: FormGroup = this.fb.group({
     name: ['', [Validators.required]],
     email: ['', [Validators.required, Validators.email]],
@@ -29,7 +26,6 @@ export class LandingComponent {
 
     //this.sendAMailService
 
-    this.responseForm = name;
 
   }
 
