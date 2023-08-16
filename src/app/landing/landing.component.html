@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-4 col-sm-3">
                 <div class="logo_area">
-                    <a href="#/"><img src="assets/img/logo2.png" alt="Logo" /></a>
+                    <a href="#slider_area"><img src="assets/img/logo2.png" alt="Logo" /></a>
                 </div>
 
                 <div class="navbar-header">
@@ -250,8 +250,8 @@
                 <div class="section_title">
                     <h2>Ponerse en <span>Contacto</span></h2>
                     <div class="sec_divider"></div>
-                    <p>En CASASRED es fácil. Llame a uno de nuestros amables agentes o visitenos en nuestra oficina
-                        de ventas para usted reciba un perfil gratis en minutos.</p>
+                    <p>Llame a uno de nuestros amables agentes o visitenos en nuestra oficina
+                        de ventas para que usted reciba un perfil gratis en minutos.</p>
                 </div>
             </div>
         </div>
@@ -265,51 +265,56 @@
                             <br />ventas@casasred.com
                         </p>
                         <br />
-                        <p>Blvd. Gustavo Diaz Ordaz 15602 Int 5A Plaza Carrusel Infonavit La Mesa
-                            <br />22610 Tijuana, B.C. Mexico
+                        <p>Blvd. Gustavo Diaz Ordaz 15602 Int 5A Plaza Carrusel La Mesa 22610 Tijuana, B.C. Mexico
                         </p>
                     </div>
                 </div>
             </div>
             <div class="col-md-8">
                 <div class="cform_box">
-                    <div id="main_form">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <input name="name" id="name" type="text" placeholder="Nombre" class="form-control">
+                    <form autocomplete="off" [formGroup]="contactForm" (ngSubmit)="letsdoit()">
+                        <p>{{ responseForm }}</p>
+                        <div id="main_form">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input type="text" id="name" class="form-control" formControlName="name"
+                                            placeholder="Ingrese su Nombre" autocomplete="off" required />
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <input name="email" id="email" type="email" placeholder="Correo"
-                                        class="form-control">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" formControlName="email"
+                                            placeholder="Ingrese su email" autocomplete="off" required />
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="col-xs-12">
-                                <div class="form-group">
-                                    <input name="subject" id="subject" type="text" placeholder="Asunto"
-                                        class="form-control">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" formControlName="subject"
+                                            placeholder="Asunto">
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="col-xs-12">
-                                <div class="form-group">
-                                    <textarea name="message" id="comments" placeholder="Mensaje"
-                                        class="form-control"></textarea>
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <textarea class="form-control" formControlName="message"
+                                            placeholder="Mensaje"></textarea>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="col-xs-12">
-                                <div class="form_btn text-center">
-                                    <input name="submit" id="submit" value="Enviar Mensaje"
-                                        class="btn main_bg_btn fbb_btn" type="submit">
+                                <div class="col-xs-12">
+                                    <div class="form_btn text-center">
+                                        <button type="submit" [disabled]="contactForm.invalid"
+                                            class="btn main_bg_btn fbb_btn">
+                                            <span class="indicator-label">Enviar Mensaje</span>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>

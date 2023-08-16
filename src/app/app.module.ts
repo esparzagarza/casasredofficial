@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { CommonModule, HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -8,14 +8,20 @@ import { RouterModule } from '@angular/router';
 import { LandingComponent } from './landing/landing.component';
 import { SellComponent } from './sell/sell.component';
 import { RentComponent } from './rent/rent.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ThankuComponent } from './thanku/thanku.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LandingComponent,
     SellComponent,
-    RentComponent
+    RentComponent,
+    ThankuComponent
   ],
   imports: [
+    CommonModule,
+    ReactiveFormsModule,
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot([
@@ -25,6 +31,7 @@ import { RentComponent } from './rent/rent.component';
       { path: '**', redirectTo: '' }
     ])
   ],
+  exports: [RouterModule],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })

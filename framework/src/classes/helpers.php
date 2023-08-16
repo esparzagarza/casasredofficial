@@ -1,0 +1,75 @@
+<?php
+
+namespace src\classes;
+
+class helpers
+{
+    public static array $modules = ['account', 'category', 'item', 'staff'];
+    public static array $monthNames = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'septiembre', 'Octubre', 'noviembre', 'diciembre'];
+
+    public static function validModule($module): bool
+    {
+        return in_array($module, self::$modules);
+    }
+    public static function getMonthName(int $monthNumber): string
+    {
+        return self::$monthNames[$monthNumber - 1];
+    }
+
+    public static function dye($value): void
+    {
+        echo '<pre>';
+        print_r($value);
+        echo '</pre>';
+        exit(1);
+    }
+
+    public static function formatResponse($status, $message, $data = []): array
+    {
+        return [
+            'status' => $status,
+            'message' => $message,
+            'data' => $data
+        ];
+    }
+
+    public static function returnToAction(array $response): void
+    {
+        echo json_encode($response, http_response_code($response['status']));
+    }
+
+    public static function getFirstKeyName(array $array)
+    {
+        $keys = array_keys($array);
+        return $keys[0];
+    }
+
+    public static function populateModel(Object $model, array $data): Object
+    {
+        foreach ($data as $key => $value) if (property_exists($model, $key)) $model->set($key, $value);
+        return $model;
+    }
+
+    public static function validateDate($date, $format = 'Y/m/d H:i:s')
+    {
+        $d = \DateTime::createFromFormat($format, $date);
+        return $d && $d->format($format) === $date;
+    }
+
+    public static function slugify($text, string $divider = '-')
+    {
+        $return = strval('');
+        $parts = explode(' ', $text);
+        $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+
+        if (count($parts) > 0) {
+            foreach ($parts as $value) {
+                $value = preg_replace('~[^-\w]+~', '', $value);
+                $value = trim($value);
+                $return .= strtolower(substr($value, 0, 1));
+            }
+        }
+
+        return $return;
+    }
+}
