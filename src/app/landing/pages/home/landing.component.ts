@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { SendAMailService } from '../../send-amail.service';
 import Swal from 'sweetalert2';
 
@@ -12,17 +11,17 @@ import Swal from 'sweetalert2';
 export class LandingComponent {
 
   contactForm: FormGroup = this.fb.group({
+    formType: ['Contact', Validators.required],
     name: ['', [Validators.required], Validators.maxLength(64)],
     email: ['', [Validators.required, Validators.email]],
     subject: ['', Validators.maxLength(256)],
     message: ['', Validators.maxLength(1024)]
   });
 
-  constructor(private fb: FormBuilder, private router: Router, private sendAMailService: SendAMailService) { }
+  constructor(private fb: FormBuilder, private sendAMailService: SendAMailService) { }
 
   letsdoit() {
-    const { name, email, subject, message } = this.contactForm.value;
-    this.sendAMailService.sendAMail(name, email, subject, message)
+    this.sendAMailService.sendAMail(this.contactForm.value.formType, this.contactForm.value)
       .subscribe(resp => {
         this.contactForm.reset();
         resp === 200

@@ -260,7 +260,6 @@ class baseController
 
     $return = helpers::formatResponse(200, 'Mail sent', []);
 
-
     return $return;
 
   }

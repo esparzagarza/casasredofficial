@@ -11,16 +11,14 @@ import Swal from 'sweetalert2';
 export class SendAMailService {
 
   private baseUrl: string = environment.baseUrl;
-  private endpoint: string = '/sendAMail';
-  private url = `${this.baseUrl + this.endpoint}`;
+  private path: string = '/sendAMail';
+  private url = `${this.baseUrl + this.path}`;
 
   constructor(private http: HttpClient) { }
 
-  sendAMail(name: string, email: string, subject: string, message: string) {
-
-    const body = { name, email, subject, message }
-
-    return this.http.post<ContactResponse>(this.url, body)
+  sendAMail(endpoint: string, body: {}) {
+    console.log(body);
+    return this.http.post<ContactResponse>(this.url + endpoint, body)
       .pipe(
         map(resp => resp.status),
         catchError(err => of(err.error.message))

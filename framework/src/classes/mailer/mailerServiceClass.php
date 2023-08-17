@@ -20,6 +20,16 @@ class mailerServiceClass
         'Asunto: ' . $request['subject'] . "<br />" .
         'Mensaje: ' . $request['message']; 
 
+        $property = '';
+        if ($request['formType'] != 'Contact') {
+            $property = '<br /><br />
+            <b>Datos de la Propiedad</b> ' . "<br />" .
+            'Tipo: ' . $request['propertyType'] . "<br />" .
+            'Documentacion: ' . $request['documentation'] . "<br />" .
+            'Predial: ' . $request['predial'] . "<br />" .
+            'Monto deseado: ' . number_format($request['amount'], 2); 
+        }
+
         $signature = '<br /><br />
         <b>CASASRED</b>
         <br />Promotora de Vivienda<br />
@@ -43,7 +53,7 @@ class mailerServiceClass
 
         $mail->isHTML(true);
         $mail->Subject = 'CASASRED :: Ponerse en Contacto';
-        $mail->Body = 'De acuerdo a su amable solicitud, hemos recibido sus datos de contacto' . "<br /><br />" . $body . $signature;
+        $mail->Body = 'De acuerdo a su amable solicitud, hemos recibido sus datos de contacto' . "<br /><br />" . $body . $property . $signature;
 
         return $mail->Send() ? true : false;
     }

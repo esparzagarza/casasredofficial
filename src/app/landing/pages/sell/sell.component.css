@@ -1,0 +1,28 @@
+#sell_area {
+    max-height: 250px;
+}
+
+.sell_single_slide,
+.single-slide-item-table {
+  height: 700px;
+}
+
+.sell_single_slide {
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  position: relative;
+}
+
+.sell_single_slide:after {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.65;
+  z-index: -1;
+}

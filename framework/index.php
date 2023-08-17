@@ -52,16 +52,10 @@ if (!empty($jsondata) && json_last_error() !== JSON_ERROR_NONE) return helpers::
 |--------------------------------------------------------------------------
 */
 
-
+$noauths = ['auth', 'subscriber', 'sendAMail', 'sendAMailContact', 'sendAMailSell', 'sendAMailRent'];
 //if ($_SERVER['REQUEST_URI'] != '/api/auth') {
 
-if (
-  implode('', array_filter(explode('/', $_SERVER['REQUEST_URI']))) != 'auth'
-  &&
-  implode('', array_filter(explode('/', $_SERVER['REQUEST_URI']))) != 'subscriber'
-  &&
-  implode('', array_filter(explode('/', $_SERVER['REQUEST_URI']))) != 'sendAMail'
-  ) {
+if (!in_array(implode('', array_filter(explode('/', $_SERVER['REQUEST_URI']))), $noauths)  ) {
   $auth = authController::authenticateAccessToken();
   if ($auth['status'] != 200) {
     helpers::returnToAction($auth);
@@ -98,6 +92,9 @@ $router->get('/', baseController::class . '::indexAction');
 $router->post('/uploadFile', baseController::class . '::postUploadFile');
 $router->post('/subscriber', subscribersController::class . '::store');
 $router->post('/sendAMail', baseController::class . '::postSendAMail');
+$router->post('/sendAMailContact', baseController::class . '::postSendAMail');
+$router->post('/sendAMailSell', baseController::class . '::postSendAMail');
+$router->post('/sendAMailRent', baseController::class . '::postSendAMail');
 
 
 require_once 'routes_auth.php';
