@@ -59,6 +59,8 @@ if (
   implode('', array_filter(explode('/', $_SERVER['REQUEST_URI']))) != 'auth'
   &&
   implode('', array_filter(explode('/', $_SERVER['REQUEST_URI']))) != 'subscriber'
+  &&
+  implode('', array_filter(explode('/', $_SERVER['REQUEST_URI']))) != 'sendAMail'
   ) {
   $auth = authController::authenticateAccessToken();
   if ($auth['status'] != 200) {
@@ -95,6 +97,7 @@ $router->any(baseController::class . '::noActionFound');
 $router->get('/', baseController::class . '::indexAction');
 $router->post('/uploadFile', baseController::class . '::postUploadFile');
 $router->post('/subscriber', subscribersController::class . '::store');
+$router->post('/sendAMail', baseController::class . '::postSendAMail');
 
 
 require_once 'routes_auth.php';

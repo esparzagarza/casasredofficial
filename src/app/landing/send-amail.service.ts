@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.prod';
 import { ContactResponse } from './interfaces';
 import { catchError, map, of, tap } from 'rxjs';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { catchError, map, of, tap } from 'rxjs';
 export class SendAMailService {
 
   private baseUrl: string = environment.baseUrl;
-  private endpoint: string = '/sendMail';
+  private endpoint: string = '/sendAMail';
   private url = `${this.baseUrl + this.endpoint}`;
 
   constructor(private http: HttpClient) { }
@@ -21,11 +22,6 @@ export class SendAMailService {
 
     return this.http.post<ContactResponse>(this.url, body)
       .pipe(
-        tap(resp => {
-          if (resp.status == 200) {
-            console.log('posted on service');
-          }
-        }),
         map(resp => resp.status),
         catchError(err => of(err.error.message))
       );

@@ -251,4 +251,17 @@ class baseController
 
     return $return;
   }
+
+  public static function postSendAMail(array $data): array {
+
+    $return = array();
+
+    mailerServiceClass::sendAMail($data);
+
+    $return = helpers::formatResponse(200, 'Mail sent', []);
+
+
+    return $return;
+
+  }
 }

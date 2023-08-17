@@ -4,6 +4,7 @@ namespace src\classes\mailer;
 
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
+use src\classes\helpers;
 
 require 'PHPMailer/Exception.php';
 require 'PHPMailer/PHPMailer.php';
@@ -11,8 +12,20 @@ require 'PHPMailer/SMTP.php';
 
 class mailerServiceClass
 {
-    public static function sendAMail(string $filename, string $email): bool
+    public static function sendAMail(array $request): bool
     {
+        $body = '<b>Datos de Contacto</b> ' . "<br />" .
+        'Nombre: ' . $request['name'] . "<br />" .
+        'Correo: ' . $request['email'] . "<br />" .
+        'Asunto: ' . $request['subject'] . "<br />" .
+        'Mensaje: ' . $request['message']; 
+
+        $signature = '<br /><br />
+        <b>CASASRED</b>
+        <br />Promotora de Vivienda<br />
+        +52 (664) 439 2448<br />
+        <a href="https://casasred.com">https://casasred.com</a>';
+
         $mail = new PHPMailer(true);
 
         $mail->SMTPDebug = 0;
@@ -20,16 +33,17 @@ class mailerServiceClass
         $mail->Host = 'casasred.com';
         $mail->SMTPAuth = true;
         $mail->Username = 'no-reply@casasred.com';
-        $mail->Password = '7z&D5^SL#bX*';
+        $mail->Password = 'IGa*$H{X.#D]';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port = 465;
 
         $mail->setFrom('no-reply@casasred.com', 'CASASRED Agencia Inmobiliaria Comercial');
-        $mail->addAddress($email);
+        $mail->addAddress($request['email'], $request['name']);
+        $mail->addCC('asesordeventas@casasred.com', 'Asesor CASASRED');
 
         $mail->isHTML(true);
-        $mail->Subject = 'Get in touch Subject';
-        $mail->Body = 'De acuerdo a su amable solicitud, permitame presentarle la siguiente información';
+        $mail->Subject = 'CASASRED :: Ponerse en Contacto';
+        $mail->Body = 'De acuerdo a su amable solicitud, hemos recibido sus datos de contacto' . "<br /><br />" . $body . $signature;
 
         return $mail->Send() ? true : false;
     }
