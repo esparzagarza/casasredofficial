@@ -17,17 +17,21 @@ class mailerServiceClass
         $body = '<b>Datos de Contacto</b> ' . "<br />" .
         'Nombre: ' . $request['name'] . "<br />" .
         'Correo: ' . $request['email'] . "<br />" .
+        'Telefono: ' . $request['phone'] . "<br />" .
         'Asunto: ' . $request['subject'] . "<br />" .
         'Mensaje: ' . $request['message']; 
+
+        $service = $request['formType'] == 'Sell' ? 'Venta' : 'Renta';
 
         $property = '';
         if ($request['formType'] != 'Contact') {
             $property = '<br /><br />
             <b>Datos de la Propiedad</b> ' . "<br />" .
+            'Servicio: ' . $service . "<br />" .
             'Tipo: ' . $request['propertyType'] . "<br />" .
             'Documentacion: ' . $request['documentation'] . "<br />" .
             'Predial: ' . $request['predial'] . "<br />" .
-            'Monto deseado: ' . number_format($request['amount'], 2); 
+            'Rango de Precio: ' . $request['pricesRange']; 
         }
 
         $signature = '<br /><br />

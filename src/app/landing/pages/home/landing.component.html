@@ -279,19 +279,25 @@
                     <form autocomplete="off" [formGroup]="contactForm" (ngSubmit)="letsdoit()">
                         <div id="main_form">
                             <div class="row">
-                                <div class="col-sm-6">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <input type="text" id="name" class="form-control" formControlName="name"
                                             placeholder="Ingrese su Nombre" autocomplete="off" required
                                             maxlength="64" />
                                     </div>
                                 </div>
-
-                                <div class="col-sm-6">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <input type="email" class="form-control" formControlName="email"
                                             placeholder="Ingrese su email" autocomplete="off" required
                                             maxlength="256" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" formControlName="phone"
+                                            placeholder="Telefono o Whatsapp" autocomplete="off" required minlength="3"
+                                            maxlength="16" />
                                     </div>
                                 </div>
 

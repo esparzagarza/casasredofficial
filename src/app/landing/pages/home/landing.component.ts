@@ -12,10 +12,11 @@ export class LandingComponent {
 
   contactForm: FormGroup = this.fb.group({
     formType: ['Contact', Validators.required],
-    name: ['', [Validators.required], Validators.maxLength(64)],
-    email: ['', [Validators.required, Validators.email]],
+    name: ['', [Validators.required], Validators.minLength(1), Validators.maxLength(64)],
+    phone: ['', [Validators.required, Validators.minLength(7), Validators.maxLength(10)]],
+    email: ['', [Validators.required, Validators.minLength(3), Validators.email]],
     subject: ['', Validators.maxLength(256)],
-    message: ['', Validators.maxLength(1024)]
+    message: ['', Validators.maxLength(1024)],
   });
 
   constructor(private fb: FormBuilder, private sendAMailService: SendAMailService) { }

@@ -24,131 +24,134 @@
         </div>
 
         <div class="row">
-            <div class="col-sm-8 col-xs-12 center-block">
+            <div class="col-sm-12 center-block">
                 <div class="cform_box">
-                    <form autocomplete="off" [formGroup]="sellForm" (ngSubmit)="letsdoit()">
-                        <div id="main_form">
-                            <div class="section_title">
-                                <h3>De la Propiedad</h3>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <select class="form-control" formControlName="propertyType">
-                                            <option value="">¿Qué tipo de Propiedad es?</option>
-                                            <option *ngFor="let item of propertyTypes" value="{{ item }}">{{ item |
-                                                titlecase }}</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <select class="form-control" formControlName="documentation">
-                                            <option value="">¿Esta regularizada (documentación)?</option>
-                                            <option value="Sí señor, tengo todo en regla">Sí señor, tengo todo en regla
-                                            </option>
-                                            <option value="Solo debo el recibo de Agua, si pasa, ¿no?">Solo debo el
-                                                recibo de Agua, si pasa, ¿no?</option>
-                                            <option value="No, fijese que me faltan documentos">No, fijese que me faltan
-                                                documentos</option>
-                                            <option value="Y sabe qué, perdí todos los documentos">Y sabe qué, perdí
-                                                todos los documentos</option>
-                                            <option value="¡Es complicado!">¡Es complicado!</option>
-                                        </select>
-                                    </div>
-                                </div>
+                    <div id="main_form">
 
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" formControlName="predial"
-                                            placeholder="Si cuenta con Predial, anotarlo" autocomplete="off"
-                                            maxlength="64" />
+                        <form autocomplete="off" [formGroup]="propertyForm" (ngSubmit)="moveStep(true)">
+                            <div *ngIf="!step">
+                                <div class="section_title">
+                                    <h3>Apoyenos a construir un mejor plan personalizado en torno a sus necesidades.
+                                    </h3>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="label-control">* ¿Qué tipo de propiedad es?</label>
+                                            <select class="form-control" formControlName="propertyType">
+                                                <option *ngFor="let item of propertyTypes" value="{{ item }}">{{ item |
+                                                    titlecase }}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="label-control">* ¿Esta regularizada o cuenta con
+                                                documentación?</label>
+                                            <select class="form-control" formControlName="documentation">
+                                                <option *ngFor="let item of documentation" value="{{ item }}">{{ item |
+                                                    titlecase }}</option>
+
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <input type="number" class="form-control" formControlName="amount"
-                                            placeholder="Anote el monto deseado" autocomplete="off" max="9999999" />
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="label-control">* ¿Cuándo estás buscando vender?</label>
+                                            <select class="form-control" formControlName="targetDate">
+                                                <option *ngFor="let item of targetDate" value="{{ item }}">{{ item |
+                                                    titlecase }}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="label-control">* ¿Qué le motiva a venderla?</label>
+                                            <select class="form-control" formControlName="motivation">
+                                                <option *ngFor="let item of motivation" value="{{ item }}">{{ item |
+                                                    titlecase }}</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <br />
-
-                            <div class="section_title">
-                                <h3>Del Vendedor</h3>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <input type="text" id="name" class="form-control" formControlName="name"
-                                            placeholder="Ingrese su Nombre" autocomplete="off" required
-                                            maxlength="64" />
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="label-control">* ¿Cuál es el rango de precio?</label>
+                                            <select class="form-control" formControlName="pricesRange">
+                                                <option value=""></option>
+                                                <option *ngFor="let item of pricesRange" value="{{ item }}">{{ item |
+                                                    titlecase }}</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
-
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <input type="email" class="form-control" formControlName="email"
-                                            placeholder="Ingrese su email" autocomplete="off" required
-                                            maxlength="256" />
-                                    </div>
-                                </div>
-
-                                <div class="col-xs-12">
-                                    <div class="form-group">
+                                    <div class="col-md-6">
+                                        <label class="label-control">Opcional: Anote detalles adicionales</label>
                                         <textarea class="form-control" formControlName="message"
-                                            placeholder="Detalles adicionales de la Propiedad"
                                             maxlength="1024"></textarea>
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12">
+                                <br />
+
+                                <div class="row">
                                     <div class="form_btn text-center">
-                                        <button type="submit" [disabled]="sellForm.invalid"
+                                        <button type="submit" [disabled]="propertyForm.invalid"
                                             class="btn main_bg_btn fbb_btn">
-                                            <span class="indicator-label">Enviar Mensaje</span>
+                                            <span class="indicator-label">Siguente</span>
                                         </button>
                                     </div>
                                 </div>
+
+
                             </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+                        </form>
 
-        <div class="row text-center">
-            <div class="col-sm-4">
-                <div class="single_contact_info">
-                    <i class="fa fa-phone"></i>
-                    <p>Agentes amables
-                        <br />+52 (664) 439 2448
-                        <br />+52 (664) 632 1627
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-sm-4">
-                <div class="single_contact_info">
-                    <i class="fa fa-envelope-o"></i>
-                    <p>Trámites o Seguimientos
-                        <br />ventas@casasred.com
-                        <br /> facturacion@casasred.com
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-sm-4">
-                <div class="single_contact_info">
-                    <i class="fa fa-map"></i>
-                    <p>Blvd. Gustavo Diaz Ordaz 15602 Int 5A Plaza Carrusel Infonavit La Mesa
-                        <br />22610 Tijuana, B.C. Mexico
-                    </p>
+                        <form autocomplete="off" [formGroup]="sellerForm" (ngSubmit)="letsdoit()">
+                            <div *ngIf="step">
+                                <div class="section_title">
+                                    <h3>¿Cuál es la mejor manera de comunicarnos con usted?</h3>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <input type="text" id="name" class="form-control" formControlName="name"
+                                                placeholder="Ingrese su Nombre completo" autocomplete="off" required
+                                                minlength="1" maxlength="64" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" formControlName="email"
+                                                placeholder="Ingrese su email" autocomplete="off" required
+                                                maxlength="256" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" formControlName="phone"
+                                                placeholder="Telefono o Whatsapp de negocios" autocomplete="off"
+                                                required minlength="3" maxlength="16" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="form_btn text-center">
+                                            <button type="submit" [disabled]="sellerForm.invalid"
+                                                class="btn main_bg_btn fbb_btn">
+                                                <span class="indicator-label">Enviar Ahora</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-<app-footer></app-footer>

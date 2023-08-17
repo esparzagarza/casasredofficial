@@ -12,16 +12,26 @@ import { Router } from '@angular/router';
 })
 export class SellComponent {
 
+  step: boolean = false;
+
   propertyTypes: string[] = [
     'Bodega',
-    'Bodega Industrial',
+    'Bodega industrial',
     'Casa',
     'Departamento',
-    'Local Comercial',
+    'Local comercial',
     'Nave industrial',
     'Terreno',
     'Otro tipo'
   ];
+
+  documentation: string[] = [
+    '¡Sí señor, tengo todo en regla!',
+    '¡Solo debo el recibo de agua!, si pasa, ¿no?',
+    '¡No!, ¡fijese que me faltan documentos!',
+    'Y, ¿sabe qué?, ¡perdí todos los documentos!',
+    '¡Es complicado!',
+  ]
 
   targetDate: string[] = [
     'Este mes',
@@ -31,30 +41,67 @@ export class SellComponent {
     '+12 meses'
   ];
 
-  sellForm: FormGroup = this.fb.group({
-    formType: ['Sell', Validators.required],
+  motivation: string[] = [
+    'Propiedad fea o deteriorada',
+    'Altos costes de mantenimiento',
+    'Mudanza por trabajo o cercano a la Familia',
+    'Quiero poner dinero en mi bolsillo de Inmediato',
+    'Solo quiero deshacerme de esta propiedad',
+    'Otro tipo',
+  ];
+
+  pricesRange: string[] = [
+    '< $250 Mil',
+    '$250 Mil - $350 Mil',
+    '$350 Mil - $500 Mil',
+    '$500 Mil - $750 Mil',
+    '$750 Mil - $1.0 Millón',
+    '$1.0 Millón - $1.5 Millones',
+    '$1.5 Millones - $2.5 Millones',
+    '$2.5 Millones - $5.0 Millones',
+    '$5.0 Millones +',
+  ];
+
+
+  propertyForm: FormGroup = this.fb.group({
     propertyType: ['', Validators.required],
     documentation: ['', Validators.required],
-    predial: [''],
-    amount: ['', Validators.max(9999999)],
-    name: ['', [Validators.required], Validators.maxLength(64)],
-    email: ['', [Validators.required, Validators.email]],
-    subject: ['', Validators.maxLength(256)],
+    targetDate: ['', Validators.required],
+    motivation: ['', Validators.required],
+    pricesRange: ['', Validators.required],
+    predial: ['', Validators.maxLength(64)],
+    subject: ['', Validators.maxLength(64)],
     message: ['', Validators.maxLength(1024)]
   });
 
+  sellerForm: FormGroup = this.fb.group({
+    formType: ['Sell', Validators.required],
+    name: ['', [Validators.required], Validators.minLength(1), Validators.maxLength(64)],
+    email: ['', [Validators.required, Validators.email]],
+    phone: ['', [Validators.required, Validators.minLength(7), Validators.maxLength(10)]]
+  });
+
+
   constructor(private fb: FormBuilder, private router: Router, private sendAMailService: SendAMailService) { }
 
+  moveStep(flag: boolean) {
+    this.step = flag;
+  }
+
+  cancel() {
+    this.propertyForm.reset();
+    this.sellerForm.reset();
+    this.step = false;
+  }
+
   letsdoit() {
-    this.sendAMailService.sendAMail(this.sellForm.value.formType, this.sellForm.value)
+    this.sendAMailService.sendAMail(this.sellerForm.value.formType, { ...this.sellerForm.value, ...this.propertyForm.value })
       .subscribe(resp => {
-        this.sellForm.reset();
         resp === 200
           ? Swal.fire('Mensaje recibido', 'Su mensaje ha sido enviado.<br />Un Asesor le contactará pronto', 'success')
           : Swal.fire('Su mensaje No fué enviado', 'Favor de intentarlo nuevamente', 'error');
 
-        this.router.navigate(['']);
+        this.cancel();
       });
   }
-
 }
