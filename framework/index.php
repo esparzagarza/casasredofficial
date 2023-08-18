@@ -53,9 +53,11 @@ if (!empty($jsondata) && json_last_error() !== JSON_ERROR_NONE) return helpers::
 */
 
 $noauths = ['auth', 'subscriber', 'sendAMail', 'sendAMailContact', 'sendAMailSell', 'sendAMailRent'];
-//if ($_SERVER['REQUEST_URI'] != '/api/auth') {
-
 if (!in_array(implode('', array_filter(explode('/', $_SERVER['REQUEST_URI']))), $noauths)  ) {
+
+//$noauths = ['/api/auth', '/api/subscriber', '/api/sendAMail', '/api/sendAMailContact', '/api/sendAMailSell', '/api/sendAMailRent'];
+//if (!in_array($_SERVER['REQUEST_URI'], $noauths)) {
+
   $auth = authController::authenticateAccessToken();
   if ($auth['status'] != 200) {
     helpers::returnToAction($auth);

@@ -79,7 +79,7 @@ export class RentComponent {
     formType: ['Rent', Validators.required],
     name: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(64)]],
     email: ['', [Validators.required, Validators.email]],
-    phone: ['', [Validators.required, Validators.minLength(7), Validators.maxLength(10)]]
+    phone: ['', [Validators.required, Validators.maxLength(64)]]
   });
 
   constructor(private fb: FormBuilder, private router: Router, private sendAMailService: SendAMailService) { }
