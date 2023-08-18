@@ -20,9 +20,6 @@ export class AuthService {
   login(email: string, password: string) {
     const body = { email, password };
 
-    console.log(body);
-
-
     return this.http.post<AuthRepsonse>(this.url, body)
       .pipe(
         tap(resp => {

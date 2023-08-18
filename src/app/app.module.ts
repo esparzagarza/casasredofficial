@@ -12,6 +12,7 @@ import { LandingComponent } from './landing/pages/home/landing.component';
 import { FooterComponent } from './landing/layout/footer/footer.component';
 import { SellComponent } from './landing/pages/sell/sell.component';
 import { RentComponent } from './landing/pages/rent/rent.component';
+import { ThankuComponent } from './landing/pages/thanku/thanku.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { RentComponent } from './landing/pages/rent/rent.component';
     LandingComponent,
     SellComponent,
     RentComponent,
-    FooterComponent
+    FooterComponent,
+    ThankuComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +31,7 @@ import { RentComponent } from './landing/pages/rent/rent.component';
     BrowserAnimationsModule,
     RouterModule.forRoot([
       { path: '', component: LandingComponent },
+      { path: 'gracias', component: ThankuComponent },
       { path: 'quiero-vender-mi-propiedad', component: SellComponent },
       { path: 'quiero-rentar-mi-propiedad', component: RentComponent },
       {

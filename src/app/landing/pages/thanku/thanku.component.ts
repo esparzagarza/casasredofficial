@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-thanku',
   templateUrl: './thanku.component.html',
   styleUrls: ['./thanku.component.css']
+
 })
 export class ThankuComponent {
 

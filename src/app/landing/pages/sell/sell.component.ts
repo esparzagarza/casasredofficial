@@ -76,11 +76,10 @@ export class SellComponent {
 
   sellerForm: FormGroup = this.fb.group({
     formType: ['Sell', Validators.required],
-    name: ['', [Validators.required], Validators.minLength(1), Validators.maxLength(64)],
+    name: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(64)]],
     email: ['', [Validators.required, Validators.email]],
     phone: ['', [Validators.required, Validators.minLength(7), Validators.maxLength(10)]]
   });
-
 
   constructor(private fb: FormBuilder, private router: Router, private sendAMailService: SendAMailService) { }
 
@@ -92,6 +91,7 @@ export class SellComponent {
     this.propertyForm.reset();
     this.sellerForm.reset();
     this.step = false;
+    this.router.navigateByUrl("gracias");
   }
 
   letsdoit() {

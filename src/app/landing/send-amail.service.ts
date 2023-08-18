@@ -17,7 +17,6 @@ export class SendAMailService {
   constructor(private http: HttpClient) { }
 
   sendAMail(endpoint: string, body: {}) {
-    console.log(body);
     return this.http.post<ContactResponse>(this.url + endpoint, body)
       .pipe(
         map(resp => resp.status),
