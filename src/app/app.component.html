@@ -1,1 +1,731 @@
-<router-outlet></router-outlet>
+<header id="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-3">
+                <div class="logo_area">
+                    <a href="#slider_area"><img src="assets/img/logo2.png" alt="Logo" /></a>
+                </div>
+
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="col-md-8 col-sm-9">
+                <nav id="main_menu" class="navbar-right">
+
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul id="nav" class="nav navbar-nav">
+                            <li><a href="#slider_area">Inicio</a></li>
+                            <li><a href="#services_area">Servicio</a></li>
+                            <li><a href="#sell_area" (click)="activateSection(1)">Vender mi Propiedad</a></li>
+                            <li><a href="#rent_area" (click)="activateSection(2)">Rentar mi Propiedad</a></li>
+                            <li><a href="#contact_area" (click)="activateSection(0)">Contacto</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section id="slider_area">
+    <div class="slider_active owl-carousel">
+        <div class="single_slide" style="background-image: url(assets/img/slider/1.jpg); background-size: cover;">
+            <div class="container">
+                <div class="single-slide-item-table">
+                    <div class="single-slide-item-tablecell">
+                        <div class="slider_content slider-animated-1">
+                            <span class="sl_heading animated">Bienvenido a</span>
+                            <h2 class="animated"> <span>CASAS</span>RED</h2>
+                            <p class="animated">Descrubra cuanto vale su propiedad y obtenga una oferta al instante
+                                <br /> HAGA CLIC EN EL BOTON PARA VER SI CALIFICA
+                            </p>
+                            <a href="#services_area" class="animated btn main_bg_btn">Quiero Saber más</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="single_slide text-right"
+            style="background-image: url(assets/img/slider/13.png); background-size: cover;">
+            <div class="container">
+                <div class="single-slide-item-table">
+                    <div class="single-slide-item-tablecell">
+                        <div class="slider_content slider-animated-3">
+                            <span class="sl_heading animated">Esta buscando</span>
+                            <h2 class="animated"> <span>Vender su</span> Propiedad</h2>
+                            <p class="animated">Podemos comprar su propiedad, sin importar en qué condiciones se
+                                encuentre <br /> HAGA CLIC EN EL BOTON PARA VER SI CALIFICA
+                            </p>
+                            <a href="#sell_area" (click)="activateSection(1)" class="animated btn main_bg_btn">Quiero
+                                Vender mi propiedad</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="single_slide" style="background-image: url(assets/img/slider/12.png); background-size: cover;">
+            <div class="container">
+                <div class="single-slide-item-table">
+                    <div class="single-slide-item-tablecell">
+                        <div class="slider_content text-center slider-animated-2">
+                            <span class="sl_heading animated">Le gustaría</span>
+                            <h2 class="animated"> <span> Rentar su</span> Propiedad</h2>
+                            <p class="animated">Terreno Local Comercial Bodega Nave Casa Departamento<br /> HAGA CLIC
+                                EN EL BOTON PARA VER SI CALIFICA
+                            </p>
+                            <a href="#rent_area" (click)="activateSection(2)" class="animated btn main_bg_btn">Quiero
+                                Rentar mi propiedad</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="services_area" class="contact_area section_padding bg_white">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-xs-12 text-center wow fadeIn" data-wow-delay=".1s">
+                <div class="section_title">
+                    <h2>Agencia Inmobiliaria <span>Comercial</span></h2>
+                    <div class="sec_divider"></div>
+                    <p class="animated">Descrubra cuanto vale su propiedad y obtenga una oferta al instante
+                        <br /> HAGA CLIC EN EL BOTON PARA VER SI CALIFICA
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center">
+
+            <div class="col-md-6">
+
+                <div class="row text-center">
+
+                    <div class="col-md-6">
+
+                        <div class="single_about">
+                            <div class="about_icon">
+                                <i class="fa fa-laptop"></i>
+                            </div>
+                            <div class="about_content">
+                                <h3>Tiene una Propiedad </h3>
+                                <p>¿Esta fea, deteriorada o solo quiere deshacerse de esa propiedad ?
+                                    <br />Podemos comprar su propiedad sin importar en qué condiciones se encuentre.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="single_about">
+                            <div class="about_icon">
+                                <i class="fa fa-file"></i>
+                            </div>
+                            <div class="about_content">
+                                <h3>Profesionales </h3>
+                                <p> Trámites Legales Altas Comisiones Costos de Cierre!
+                                    <br />¡Podrían pasar meses hasta que esté en condiciones de cotización!
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row text-center">
+                    <br /><a href="#sell_area" (click)="activateSection(1)" class="animated btn main_bg_btn">Quiero
+                        Vender mi propiedad</a>
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <div class="row text-center">
+
+                    <div class="col-md-6">
+                        <div class="single_about">
+                            <div class="about_icon">
+                                <i class="fa fa-support"></i>
+                            </div>
+                            <div class="about_content">
+                                <h3>Proceso</h3>
+                                <p>¿Qué tal si nos saltamos todo eso? y llegamos a la parte donde mete dinero a su
+                                    bolsillo?
+                                </p>
+                                <br />&nbsp;
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="single_about">
+                            <div class="about_icon">
+                                <i class="fa fa-paper-plane-o"></i>
+                            </div>
+                            <div class="about_content">
+                                <h3>Estabilidad Financiera </h3>
+                                <p>Queremos comprar su propiedad ¡AHORA MISMO!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row text-center">
+                    <br /><a href="#rent_area" (click)="activateSection(2)" class="animated btn main_bg_btn">Quiero
+                        Rentar mi propiedad</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section [hidden]="activatedSection" id="contact_area" class="section_padding bg_white">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-xs-12 text-center wow fadeIn" data-wow-delay=".1s">
+                <div class="section_title">
+                    <h2>Ponerse en <span>Contacto</span></h2>
+                    <div class="sec_divider"></div>
+                    <p>Llame a uno de nuestros amables agentes o visitenos en nuestra oficina
+                        de ventas para que usted reciba un perfil gratis en minutos.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row text-center">
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="single_contact_info">
+                        <i class="fa fa-map"></i>
+                        <p>+52 (664) 439 2448
+                            <br />ventas@casasred.com
+                        </p>
+                        <br />
+                        <p>Blvd. Gustavo Diaz Ordaz 15602 Int 5A Plaza Carrusel La Mesa 22610 Tijuana, B.C. Mexico
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="cform_box">
+                    <form autocomplete="off" [formGroup]="contactForm" (ngSubmit)="letsdoit()">
+                        <div id="main_form">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <input type="text" id="name" class="form-control" formControlName="name"
+                                            placeholder="Ingrese su Nombre" autocomplete="off" required
+                                            maxlength="64" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" formControlName="email"
+                                            placeholder="Ingrese su email" autocomplete="off" required
+                                            maxlength="256" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" formControlName="phone"
+                                            placeholder="Telefono o Whatsapp" autocomplete="off" required
+                                            maxlength="64" />
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" formControlName="subject"
+                                            placeholder="Asunto" maxlength="256">
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <textarea class="form-control" formControlName="message" placeholder="Mensaje"
+                                            maxlength="1024"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12">
+                                    <div class="form_btn text-center">
+                                        <button type="submit" [disabled]="contactForm.invalid"
+                                            class="btn main_bg_btn fbb_btn">
+                                            <span class="indicator-label">Enviar Mensaje</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section [hidden]="activatedSection!=1" id="sell_area" class="section_padding bg_white">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-xs-12 text-center wow fadeIn" data-wow-delay=".1s">
+                <div class="section_title">
+                    <h2>Responda algunas preguntas sobre su <span>Propiedad</span></h2>
+                    <div class="sec_divider"></div>
+                    <p>¡Estamos comprometidos a trabajar con su línea de tiempo y sus necesidades!.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 center-block">
+                <div class="cform_box">
+                    <div id="main_form">
+
+                        <form autocomplete="off" [formGroup]="propertyForm" (ngSubmit)="moveStep(true)">
+                            <div *ngIf="!step">
+                                <div class="section_title">
+                                    <h2 class="animated"> Esta buscando <span>Vender su</span> Propiedad</h2>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="label-control">* ¿Qué tipo de propiedad es?</label>
+                                            <select class="form-control" formControlName="propertyType">
+                                                <option *ngFor="let item of propertyTypes" value="{{ item }}">{{ item |
+                                                    titlecase }}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="label-control">* ¿Esta regularizada o cuenta con
+                                                documentación?</label>
+                                            <select class="form-control" formControlName="documentation">
+                                                <option *ngFor="let item of documentation" value="{{ item }}">{{ item |
+                                                    titlecase }}</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="label-control">* ¿Cuándo estás buscando vender?</label>
+                                            <select class="form-control" formControlName="targetDate">
+                                                <option *ngFor="let item of targetDate" value="{{ item }}">{{ item |
+                                                    titlecase }}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="label-control">* ¿Qué le motiva a venderla?</label>
+                                            <select class="form-control" formControlName="motivation">
+                                                <option *ngFor="let item of motivation" value="{{ item }}">{{ item |
+                                                    titlecase }}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="label-control">* ¿Cuál es el rango de precio?</label>
+                                            <select class="form-control" formControlName="pricesRange">
+                                                <option value=""></option>
+                                                <option *ngFor="let item of pricesRange" value="{{ item }}">{{ item |
+                                                    titlecase }}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="label-control">Opcional: Anote detalles adicionales</label>
+                                        <textarea class="form-control" formControlName="message"
+                                            maxlength="1024"></textarea>
+                                    </div>
+                                </div>
+
+                                <br />
+
+                                <div class="row">
+                                    <div class="form_btn text-center">
+                                        <button type="submit" [disabled]="propertyForm.invalid"
+                                            class="btn main_bg_btn fbb_btn">
+                                            <span class="indicator-label">Siguente</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </form>
+
+                        <form autocomplete="off" [formGroup]="sellerForm" (ngSubmit)="letsSell()">
+                            <div *ngIf="step">
+                                <div class="section_title">
+                                    <h3>¿Cuál es la mejor manera de comunicarnos con usted?</h3>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <input type="text" id="name" class="form-control" formControlName="name"
+                                                placeholder="Ingrese su Nombre completo" autocomplete="off" required
+                                                minlength="1" maxlength="64" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" formControlName="email"
+                                                placeholder="Ingrese su email" autocomplete="off" required
+                                                maxlength="256" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" formControlName="phone"
+                                                placeholder="Telefono o Whatsapp de negocios" autocomplete="off"
+                                                required maxlength="64" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="form_btn text-center">
+                                            <button type="submit" [disabled]="sellerForm.invalid"
+                                                class="btn main_bg_btn fbb_btn">
+                                                <span class="indicator-label">Enviar Ahora</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section [hidden]="activatedSection!=2" id="rent_area" class="section_padding bg_white">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-xs-12 text-center wow fadeIn" data-wow-delay=".1s">
+                <div class="section_title">
+                    <h2>Responda algunas preguntas sobre su <span>Propiedad</span></h2>
+                    <div class="sec_divider"></div>
+                    <p>¡Estamos comprometidos a trabajar con su línea de tiempo y sus necesidades!.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 center-block">
+                <div class="cform_box">
+                    <div id="main_form">
+
+                        <form autocomplete="off" [formGroup]="rent_propertyForm" (ngSubmit)="moveStep(true)">
+                            <div *ngIf="!step">
+                                <div class="section_title">
+                                    <h2 class="animated"> Esta buscando <span>Rentar su</span> Propiedad</h2>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="label-control">* ¿Qué tipo de propiedad es?</label>
+                                            <select class="form-control" formControlName="propertyType">
+                                                <option *ngFor="let item of rent_propertyTypes" value="{{ item }}">{{
+                                                    item |
+                                                    titlecase }}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="label-control">* ¿Esta regularizada o cuenta con
+                                                documentación?</label>
+                                            <select class="form-control" formControlName="documentation">
+                                                <option *ngFor="let item of rent_documentation" value="{{ item }}">{{
+                                                    item |
+                                                    titlecase }}</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="label-control">* ¿Cuándo estás buscando rentar?</label>
+                                            <select class="form-control" formControlName="targetDate">
+                                                <option *ngFor="let item of rent_targetDate" value="{{ item }}">{{ item
+                                                    |
+                                                    titlecase }}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="label-control">* ¿Qué le motiva a rentarla?</label>
+                                            <select class="form-control" formControlName="motivation">
+                                                <option *ngFor="let item of rent_motivation" value="{{ item }}">{{ item
+                                                    |
+                                                    titlecase }}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="label-control">* ¿Cuál es el rango de precio?</label>
+                                            <select class="form-control" formControlName="pricesRange">
+                                                <option value=""></option>
+                                                <option *ngFor="let item of rent_pricesRange" value="{{ item }}">{{ item
+                                                    |
+                                                    titlecase }}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="label-control">Opcional: Anote detalles adicionales</label>
+                                        <textarea class="form-control" formControlName="message"
+                                            maxlength="1024"></textarea>
+                                    </div>
+                                </div>
+
+                                <br />
+
+                                <div class="row">
+                                    <div class="form_btn text-center">
+                                        <button type="submit" [disabled]="rent_propertyForm.invalid"
+                                            class="btn main_bg_btn fbb_btn">
+                                            <span class="indicator-label">Siguente</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </form>
+
+                        <form autocomplete="off" [formGroup]="rentForm" (ngSubmit)="letsRent()">
+                            <div *ngIf="step">
+                                <div class="section_title">
+                                    <h3>¿Cuál es la mejor manera de comunicarnos con usted?</h3>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <input type="text" id="name" class="form-control" formControlName="name"
+                                                placeholder="Ingrese su Nombre completo" autocomplete="off" required
+                                                minlength="1" maxlength="64" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" formControlName="email"
+                                                placeholder="Ingrese su email" autocomplete="off" required
+                                                maxlength="256" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" formControlName="phone"
+                                                placeholder="Telefono o Whatsapp de negocios" autocomplete="off"
+                                                required maxlength="64" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="form_btn text-center">
+                                            <button type="submit" [disabled]="rentForm.invalid"
+                                                class="btn main_bg_btn fbb_btn">
+                                                <span class="indicator-label">Enviar Ahora</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section [hidden]="activatedSection!=-1" class="section_padding bg_white">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-xs-12 text-center wow fadeIn" data-wow-delay=".1s">
+                <div class="section_title">
+                    <h2>Hemos recibido su <span>Mensjae</span></h2>
+                    <div class="sec_divider"></div>
+                    <p>Llame a uno de nuestros amables agentes o visitenos en nuestra oficina
+                        de ventas para que usted reciba un perfil gratis en minutos.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row text-center">
+            <div class="single_contact_info">
+                <div class="logo_area"> <a href="https://casasred.com"><img src="assets/img/logo2.png" /></a></div>
+                <p>+52 (664) 439 2448
+                    <br />ventas@casasred.com
+                </p>
+                <br />
+                <p>Blvd. Gustavo Diaz Ordaz 15602 Int 5A Plaza Carrusel La Mesa 22610 Tijuana, B.C. Mexico
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="counter_area" class="section_padding"
+    style="background-image: url(assets/img/counter-bg.png); background-size: cover; background-attachment: fixed;">
+    <div class="container">
+        <div class="text-center">
+            <div class="col-md-3 col-sm-6">
+                <div class="counter-items">
+                    <div class="counter_icon">
+                        <i class="fa fa-rocket"></i>
+                    </div>
+                    <div class="number-number">
+                        <span class="counter">850</span>
+                    </div>
+                    <p class="number-desc">Proyectos de vivienda</p>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="counter-items">
+                    <div class="counter_icon">
+                        <i class="fa fa-clock-o"></i>
+                    </div>
+                    <div class="number-number">
+                        <span class="counter">1278</span>
+                    </div>
+                    <p class="number-desc">Propiedades entregadas</p>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="counter-items">
+                    <div class="counter_icon">
+                        <i class="fa fa-lightbulb-o"></i>
+                    </div>
+                    <div class="number-number">
+                        <span class="counter">6923 </span>
+                    </div>
+                    <p class="number-desc">Clientes felices</p>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="counter-items">
+                    <div class="counter_icon">
+                        <i class="fa fa-coffee"></i>
+                    </div>
+                    <div class="number-number">
+                        <span class="counter">9999</span>
+                    </div>
+                    <p class="number-desc">Citas atendidas</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div class="clearfix"></div>
+
+<section id="clients_area" class="client_area section_gray">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-12 col-xs-12 text-center wow fadeIn" data-wow-delay=".1s">
+                <div class="section_title">
+                    <h2>Opciones de <span>Crédito</span></h2>
+                    <div class="sec_divider"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="client_slide_area owl-carousel">
+            <div class="single_client">
+                <img class="img-responsive" src="assets/img/client/1.jpg" alt="" />
+            </div>
+            <div class="single_client">
+                <img class="img-responsive" src="assets/img/client/2.jpg" alt="" />
+            </div>
+            <div class="single_client">
+                <img class="img-responsive" src="assets/img/client/3.jpg" alt="" />
+            </div>
+            <div class="single_client">
+                <img class="img-responsive" src="assets/img/client/4.jpg" alt="" />
+            </div>
+            <div class="single_client">
+                <img class="img-responsive" src="assets/img/client/1.jpg" alt="" />
+            </div>
+            <div class="single_client">
+                <img class="img-responsive" src="assets/img/client/2.jpg" alt="" />
+            </div>
+            <div class="single_client">
+                <img class="img-responsive" src="assets/img/client/3.jpg" alt="" />
+            </div>
+            <div class="single_client">
+                <img class="img-responsive" src="assets/img/client/4.jpg" alt="" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer id="footer_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="copyright">
+                    <p>Copyright © 2023 CASASRED | Derechos reservados <a href="#/suscriptores">CasasRed Developer
+                            Team</a></p>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+
+                <div class="ftr_social_list">
+                    <ul class="navbar-right">
+                        <li><a href="https://www.facebook.com/CCasasRed" class="f_facebook"><i
+                                    class="fa fa-facebook"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="whatsapp">
+    <a href="{{ whatsApi }}" target="_blank">
+        <svg width="80" height="80" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+            <g class="layer">
+                <title>Layer 1</title>
+                <circle cx="40" cy="40" fill="#fff" id="svg_1" r="38" stroke="#000000" stroke-width="0" />
+                <path
+                    d="m57.81072,21.975c-4.48928,-4.5 -10.46786,-6.975 -16.82142,-6.975c-13.11429,0 -23.78571,10.67143 -23.78571,23.78571c0,4.18928 1.09286,8.28215 3.17143,11.89286l-3.375,12.32142l12.61072,-3.31072c3.47143,1.89642 7.38215,2.89286 11.36786,2.89286l0.01072,0c13.10358,0 24.01072,-10.67143 24.01072,-23.78571c0,-6.35357 -2.7,-12.32142 -7.18928,-16.82142l-0.00001,-0.00001l-0.00001,0l-0.00002,0.00001zm-16.82142,36.6c-3.55714,0 -7.03928,-0.95357 -10.07143,-2.75357l-0.71785,-0.42857l-7.47858,1.96072l1.99286,-7.29642l-0.47143,-0.75c-1.98215,-3.15 -3.02142,-6.78215 -3.02142,-10.52142c0,-10.89642 8.87143,-19.76786 19.77858,-19.76786c5.28215,0 10.24286,2.05714 13.97143,5.79642c3.72857,3.73928 6.02142,8.7 6.01072,13.98215c0,10.90714 -9.09642,19.77858 -19.99286,19.77858l0,-0.00002l-0.00001,0l-0.00001,-0.00001zm10.84286,-14.80714c-0.58928,-0.3 -3.51429,-1.73572 -4.06072,-1.92857c-0.54643,-0.20358 -0.94286,-0.3 -1.33928,0.3c-0.39642,0.6 -1.53214,1.92857 -1.88571,2.33572c-0.34286,0.39642 -0.69642,0.45 -1.28571,0.15c-3.49286,-1.74643 -5.78571,-3.11785 -8.08928,-7.07143c-0.61072,-1.05 0.61072,-0.975 1.74643,-3.24643c0.19286,-0.39642 0.09642,-0.73928 -0.05357,-1.03928c-0.15,-0.3 -1.33928,-3.225 -1.83214,-4.41429c-0.48215,-1.15714 -0.975,-0.99642 -1.33928,-1.01785c-0.34286,-0.02142 -0.73928,-0.02142 -1.13572,-0.02142c-0.39642,0 -1.03928,0.15 -1.58571,0.73928c-0.54643,0.6 -2.07858,2.03572 -2.07858,4.96072c0,2.925 2.13214,5.75357 2.42142,6.15c0.3,0.39642 4.18928,6.39642 10.15714,8.97858c3.77143,1.62857 5.25,1.76786 7.13572,1.48928c1.14643,-0.17143 3.51429,-1.43572 4.00714,-2.82857c0.49286,-1.39286 0.49286,-2.58215 0.34286,-2.82857c-0.13928,-0.26786 -0.53572,-0.41785 -1.125,-0.70714l-0.00001,-0.00001l0.00002,-0.00001l-0.00002,-0.00001z"
+                    fill="currentColor" id="svg_2" />
+            </g>
+        </svg>
+    </a>
+</div>
